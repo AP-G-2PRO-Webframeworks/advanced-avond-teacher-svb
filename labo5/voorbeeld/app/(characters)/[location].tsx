@@ -1,8 +1,7 @@
 import { useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { View, Button, Text } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
-import {encode} from 'html-entities';
+import { View, Text } from "react-native";
+import { FlatList } from "react-native";
 
 interface Location {
     id:        number;

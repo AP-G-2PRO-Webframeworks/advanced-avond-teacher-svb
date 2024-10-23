@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Button, Text, FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import { Link } from "expo-router";
 
 export interface ICharacter {
@@ -46,14 +46,13 @@ function Character({ character }: CharacterProps) {
         <View>
             <Text>{character.name}</Text>
             <Link
+                style={{color: "blue", textDecorationLine: "underline"}}
                 href={{
                     pathname: "/[location]",
                     params: { location: character.origin }
                 }}>
-                {character.origin}
+                <Text>{character.origin}</Text>
             </Link>
-
-            <hr/>
         </View>
     )
 }
@@ -61,14 +60,14 @@ function Character({ character }: CharacterProps) {
 function Characters() {
     const [characters, setCharacters] = useState<ICharacter[]>();
 
-    const loadData = () => {
+    const loadData = async () => {
         const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbS52YW5iYXR0ZWxAYXAuYmUiLCJpYXQiOjE3MjgzODI2MDJ9.ZRlRKTvk35ZZl7EHVZukE26jorXKklq84Bbv5Dq6ksQ";
         const headers = { 'Authorization': `Bearer ${token}` };
         const baseURL = "https://sampleapis.assimilate.be/rickandmorty/characters/";
 
-        fetch(baseURL, { headers })
-            .then(resp => resp.json())
-            .then(data => setCharacters(data));
+        const response = await fetch(baseURL, { headers });
+        const data = await response.json();
+        setCharacters(data);
     }
 
     useEffect(
