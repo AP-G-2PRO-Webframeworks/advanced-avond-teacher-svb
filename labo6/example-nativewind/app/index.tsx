@@ -1,4 +1,6 @@
+import Test from "@/components/test";
 import { Text, View } from "react-native";
+
 
 const Index = () => {
     return (
@@ -9,7 +11,7 @@ const Index = () => {
                 alignItems: "center",
             }}
         >
-            <Text className="font-bold bg-black">Edit app/index.tsx to edit this screen.</Text>
+            <Test />
         </View>
     );
 }

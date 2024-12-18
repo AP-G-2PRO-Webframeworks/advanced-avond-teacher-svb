@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
 import { Text, View } from "react-native";
 
 function ProductPage() { 
@@ -6,7 +6,8 @@ function ProductPage() {
 
     return (
         <View>
-            <Text>Product page for productId: { productId }</Text>
+            <Text>Product page for productId: {productId}</Text>
+            <Stack.Screen options={{ title: "qsdf" }} />
         </View>
     )
 }

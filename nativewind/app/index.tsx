@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-const Index = () => {
+function Index() {
     return (
         <View
             style={{
